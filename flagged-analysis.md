@@ -16,16 +16,43 @@ Analysis of our QuillBot test (academic ML writing). The rewritten version score
 - "The textures, spatial relationships, and color distributions are fundamentally different" follows a classic AI enumeration pattern (X, Y, and Z are [adjective])
 - Three sentences that all build linearly — no digression, no surprise
 
-**Rewrite that would likely pass:**
+**Three rewrites tested on QuillBot — results below.**
 
-> ImageNet pretraining is standard practice, and for good reason. Park and Kim (2022) got a 12-point bump in balanced accuracy just by starting from a pretrained ResNet-50 instead of random initialization, working with only 8,200 dermatology images. But it is worth asking what exactly transfers. The early convolutional layers pick up edges and gradients — those generalize. The deeper layers, trained on Golden Retrievers and traffic signs, encode features that have no obvious analog in a histopathology slide. H&E-stained tissue looks nothing like ImageNet. The spatial structure is different, the color space is constrained, and the diagnostically relevant patterns exist at scales the original architecture was never optimized for. Fine-tuning compensates for some of this, but not all of it.
+### Version A: Questioning Opener + Parenthetical Asides (✅ 100% Human)
 
-**What changed:**
-- Broke the linear flow — starts with an agreement before the counterpoint
-- Added informal voice ("just by starting from," "worth asking")
-- Got more specific about *what* doesn't transfer (H&E staining, scale)
-- Varied sentence length more (short declarative → long technical → short punch)
-- Replaced the tidy X-Y-Z enumeration with a messier, more natural accumulation
+> Fine-tuning from ImageNet-pretrained weights is now so routine that few researchers question it. Park and Kim (2022) reported a 12-point improvement in balanced accuracy on a dermatology dataset of 8,200 images when starting from a pretrained ResNet-50 rather than random initialization. The gains are real. Yet what exactly carries over from ImageNet to, say, an H&E-stained biopsy slide? Early convolutional filters capture low-level edge and gradient information that generalizes reasonably well across domains. Deeper layers are a different story; the features they encode — optimized for distinguishing Golden Retrievers from fire trucks — have no clear analog in tissue morphology, where diagnostically relevant patterns depend on cellular architecture, staining intensity, and spatial relationships at scales the original network was never designed to resolve.
+
+### Version B: Traditional Academic Tone (❌ 48% AI)
+
+> Transfer learning from ImageNet has become the default initialization strategy for medical image classification, and the empirical evidence supports this convention. Park and Kim (2022), working with a modest dermatology corpus of 8,200 labeled images, observed a 12-point gain in balanced accuracy when fine-tuning ResNet-50 from pretrained weights versus training from scratch. Similar findings appear across radiology, ophthalmology, and pathology benchmarks. The question is not whether pretraining helps — it clearly does — but whether the nature of what transfers is well understood. ImageNet categories (household objects, animals, vehicles) share little visual vocabulary with medical imaging modalities. The low-level convolutional features generalize; the high-level representations, shaped by a taxonomy of everyday objects, do not map onto the cellular morphologies and staining patterns that clinicians actually need to distinguish.
+
+### Version C: "Thinking Out Loud" Academic (✅ 100% Human)
+
+> Why does everyone fine-tune from ImageNet? Because it works. Park and Kim (2022) saw balanced accuracy jump 12 points on an 8,200-image dermatology dataset simply by initializing ResNet-50 with pretrained weights instead of random values. That kind of gain is hard to argue with, especially when labeled medical data is scarce. But the standard explanation — that pretrained features provide useful visual primitives — deserves more scrutiny than it typically receives. The first few convolutional layers learn edge detectors and Gabor-like filters; those transfer well to almost any vision task. Beyond that, the story gets murkier. A network trained to tell apart Golden Retrievers and school buses has learned texture and shape representations that bear little resemblance to what matters in, say, a Papanicolaou-stained cervical cytology image, where the relevant distinctions involve nuclear-to-cytoplasmic ratios and chromatin distribution patterns. Fine-tuning overwrites some of these misaligned representations, but how completely it does so — and whether residual ImageNet biases persist in the adapted model — is not well characterized.
+
+### What Separated Pass from Fail
+
+| Feature | Version A (100% Human) | Version B (48% AI) | Version C (100% Human) |
+|---|---|---|---|
+| Opens with a question | No (but opens with a challenge) | No (flat declarative) | Yes ("Why does everyone...?") |
+| Short punchy sentences | "The gains are real." | None — all medium-long | "Because it works." |
+| Parenthetical asides | "to, say, an H&E-stained biopsy slide?" | None | "in, say, a Papanicolaou-stained..." |
+| Semicolons | Yes (1) | Yes (1) | Yes (1) |
+| Concrete examples | Golden Retrievers, fire trucks, H&E stain | Household objects, animals (generic) | Golden Retrievers, school buses, Pap stain |
+| Informal phrasing | "a different story" | None — uniformly formal | "the story gets murkier", "hard to argue with" |
+| Sentence length range | 5 words to 45 words | 15 words to 35 words | 4 words to 52 words |
+| Raises unanswered questions | "what exactly carries over?" | "whether...is well understood" (hedging) | "how completely it does so...is not well characterized" |
+| Enumeration pattern | Messy accumulation | Clean X, Y, Z list in parentheses | Embedded in long sentence |
+
+**Key insight: Version B failed because every sentence was medium-length (15-35 words), it had no informal phrasing, no questions, no fragments, and its enumeration was in a clean parenthetical list. It was academic but *uniformly* academic — and uniformity is what detectors catch.**
+
+**What changed in the passing versions:**
+- Broke the linear flow — starts with agreement or question before counterpoint
+- Added informal voice within scholarly context ("a different story," "murkier," "hard to argue with")
+- Got more specific — named staining methods (H&E, Papanicolaou), specific ImageNet classes, specific cellular features
+- Varied sentence length dramatically (4 words to 52 words)
+- Replaced tidy enumerations with messy, embedded accumulations
+- Raised genuine open questions rather than hedging
 
 ---
 
