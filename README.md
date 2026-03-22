@@ -12,6 +12,7 @@ A running reference for making AI-assisted writing sound natural and human. Usef
 - [Before & After Examples](before-after-examples.md) — Concrete AI vs human rewrites
 - [How Professors Detect AI](professor-detection.md) — What educators actually look for (from Reddit/forums)
 - [Detection Deep Dive](detection-info.md) — How AI detectors work and what triggers them
+- [Sentence Audit](sentence-audit.md) — Line-by-line tone check + formal perplexity boosters
 - [Editing Checklist](checklist.md) — Quick pre-submission checklist
 
 ## How to Use This
