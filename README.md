@@ -5,6 +5,7 @@ A running reference for making AI-assisted writing sound natural and human. Usef
 ## Contents
 
 - [Academic Writing](academic-writing.md) — **Tested**: how to write academic prose that passes AI detection (100% → 17% AI)
+- [Flagged vs. Passed Analysis](flagged-analysis.md) — Line-by-line breakdown of what got caught and why, with rewrites
 - [Word Swaps](word-swaps.md) — AI-flagged words/phrases and their human alternatives
 - [Structural Patterns](structural-patterns.md) — Formatting and structural tells to avoid
 - [Punctuation Tells](punctuation-tells.md) — Em dashes, semicolons, and other punctuation giveaways
