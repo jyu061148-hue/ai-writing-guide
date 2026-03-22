@@ -1,18 +1,20 @@
 # Flagged vs. Passed — What Made the Difference
 
-Analysis of our QuillBot test (academic ML writing). The rewritten version scored 80% human / 17% AI. Here's why specific sections passed or failed.
+Analysis of our QuillBot test (academic ML writing). The rewritten version scored 80% human / 17% AI / 3% AI-refined. Here's exactly what got caught, verified by reading the highlight colors directly from the detector.
 
 ---
 
-## ❌ FLAGGED: ImageNet Pretraining Paragraph (Low Confidence AI)
+## ❌ FLAGGED (Orange — AI-Generated): ImageNet Pretraining Section
 
-**What got flagged:**
-> ImageNet pretraining helps; Park and Kim (2022) saw a 12-point gain in balanced accuracy when fine-tuning ResNet-50 on 8,200 dermatology images versus training from scratch. But the assumption that features learned from photographs of dogs and cars transfer cleanly to histopathology slides is questionable. The textures, spatial relationships, and color distributions are fundamentally different. What transfers is low-level edge detection, not domain-specific pattern recognition.
+**Exact text flagged (confirmed from QuillBot highlights):**
+> ImageNet pretraining helps; Park and Kim (2022) saw a 12-point gain in balanced accuracy when fine-tuning ResNet-50 on 8,200 dermatology images versus training from scratch. But the assumption that features learned from photographs of dogs and cars transfer cleanly to histopathology slides is questionable. The textures, spatial relationships, and color distributions are fundamentally different.
 
-**Why it likely got flagged:**
+**Listed as "Low Confidence" in QuillBot's "Main AI Contributors" panel.**
+
+**Why it got flagged:**
 - The structure is too clean: claim → evidence → counterpoint → conclusion
 - "The textures, spatial relationships, and color distributions are fundamentally different" follows a classic AI enumeration pattern (X, Y, and Z are [adjective])
-- Four sentences that all build linearly — no digression, no surprise
+- Three sentences that all build linearly — no digression, no surprise
 
 **Rewrite that would likely pass:**
 
@@ -27,31 +29,27 @@ Analysis of our QuillBot test (academic ML writing). The rewritten version score
 
 ---
 
-## ❌ FLAGGED: Grad-CAM / Interpretability Paragraph (High Confidence AI)
+## 🔵 FLAGGED (Blue — AI-Refined): Grad-CAM Opening
 
-**What got flagged:**
-> Interpretability methods like Grad-CAM produce saliency maps, but radiologists in a 2024 survey reported that these explanations rarely changed their clinical decisions (Martinez et al., 2024). Meanwhile, the 510(k) pathway assumes devices are static, but models that learn continuously break that assumption.
+**Exact text flagged (confirmed from QuillBot highlights):**
+> Grad-CAM produces saliency maps. Radiologists look at them.
 
-**Why it likely got flagged:**
-- Classic AI "X does Y, but Z" structure — twice in a row
-- "Meanwhile" is an AI transition word
-- Two consecutive sentences with the exact same grammatical pattern (subject does thing, but counterpoint)
-- Too balanced — presents both sides without committing to either
+**Listed as "High Confidence" in QuillBot's "Main AI Contributors" panel.**
+
+**Why it got flagged:**
+- Two short declarative sentences back-to-back with the same structure (Subject + Verb + Object)
+- Despite being short and punchy (which usually helps), the rigid parallelism reads as AI-generated
+- No connective tissue between the two statements — AI often writes in staccato declarations like this
 
 **Rewrite that would likely pass:**
 
-> Grad-CAM is the standard answer to "why did the model flag this scan?" It overlays a heatmap on the input image, highlighting regions that drove the prediction. In theory, this should help radiologists trust or override the output. In practice, it rarely does. Martinez et al. (2024) surveyed 140 radiologists who had access to Grad-CAM explanations during diagnostic tasks. Almost none of them changed a clinical decision based on what the heatmap showed. The explanations were either too coarse to be useful or confirmed what the radiologist already thought.
->
-> Then there is the regulatory side, which is its own mess. The FDA's 510(k) pathway treats a device as a fixed product. You validate it, you clear it, you ship it. But a model designed to improve with new data is not fixed. Every update is, technically, a new device. Nobody wants to re-clear a model every time the training set changes, but nobody has proposed a workable alternative either.
+> Grad-CAM overlays a heatmap on the input image, highlighting whichever regions drove the prediction. Radiologists are supposed to use these maps to decide whether to trust the model's output — but in practice, most of them don't.
 
 **What changed:**
-- Broke the "X but Y" pattern — used narrative progression instead
-- Started with a concrete description of what Grad-CAM actually does (not just naming it)
-- Added specifics from the study (140 radiologists, why it didn't help)
-- Separated interpretability from regulation into distinct thoughts
-- Used informal voice ("which is its own mess," "nobody wants to")
-- Varied paragraph length — one long, one medium
-- Replaced "Meanwhile" with a natural break
+- First sentence now explains what Grad-CAM actually *does*, not just names it
+- Second sentence connects to the first with purpose ("supposed to use these maps to decide")
+- Added the "but in practice" turn — gives it a human argumentative flow
+- Broke the parallel Subject-Verb-Object structure
 
 ---
 
