@@ -9,10 +9,17 @@ Testing each section of the TRACE paper on QuillBot AI Detector.
 | Abstract | 13% | Opener: "ECoG has emerged as a high-fidelity neural recording modality...offering superior...compared to" |
 | Intro P1-P2 | 47% | Entire P1 flagged: "BCIs are among the most promising technologies...Stroke affects more than..." ECoG paragraph passed. |
 | Intro P3-P4 (technical gap) | 0% | Rewritten: opened with technical gap instead of clinical stats |
-| Related Work (Dataset 4 history) | 0% | Clean as-is. Domain-specific, data-heavy. |
-| Results | 0% | Clean as-is. Packed with numbers. |
-| Discussion | 0% | Clean as-is. Specific to TRACE findings. |
-| Conclusion | 0% | Clean as-is. |
+| Related Work: Dataset 4 history | 0% | Clean as-is |
+| Related Work: Transformers for neural time series | 0% | Clean as-is |
+| Related Work: Reproducibility (first 2 paras) | 86% -> 0% | Rewritten: replaced generic field-review text with specific examples |
+| Related Work: Reproducibility (last 2 paras) | 0% | Clean as-is |
+| TRACE Overview | 0% | Clean as-is |
+| Data/Preprocessing pipeline | 0% | Clean as-is |
+| TRACE Architecture description | 0% | Clean as-is |
+| Results | 0% | Clean as-is |
+| Discussion | 0% | Clean as-is |
+| Limitations | 0% | Clean as-is |
+| Conclusion | 0% | Clean as-is |
 
 ## Flagged Patterns Found So Far
 
