@@ -2,9 +2,13 @@
 
 A running reference for making AI-assisted writing sound natural and human. Useful for academic papers, essays, and professional writing.
 
-## Contents
+## Start Here
 
-- [Academic Writing](academic-writing.md) — **Tested**: how to write academic prose that passes AI detection (100% → 17% AI)
+- **[COMPLETE GUIDE](COMPLETE-GUIDE.md)** — Everything in one document: formula, pitfalls, word swaps, tested examples, QuillBot usage, checklist
+
+## Detailed References
+
+- [Academic Writing](academic-writing.md) — **Tested**: how to write academic prose that passes AI detection (100% to 17% AI)
 - [Flagged vs. Passed Analysis](flagged-analysis.md) — Line-by-line breakdown of what got caught and why, with rewrites
 - [Word Swaps](word-swaps.md) — AI-flagged words/phrases and their human alternatives
 - [Structural Patterns](structural-patterns.md) — Formatting and structural tells to avoid
